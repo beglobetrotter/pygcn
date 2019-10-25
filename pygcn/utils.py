@@ -29,7 +29,7 @@ def load_data(path="../data/cora/", dataset="cora"):
     edges = np.array(list(map(idx_map.get, edges_unordered.flatten())),
                      dtype=np.int32).reshape(edges_unordered.shape)
     adj = sp.coo_matrix((np.ones(edges.shape[0]), (edges[:, 0], edges[:, 1])),
-                        shape=(labels.shape[0], labels.shape[0]),  #Here, the shape should be equal to (idx.shape[0], idx.shape[0]), not labels 
+                        shape=(idx.shape[0], idx.shape[0]),  #The shape should be (idx.shape[0], idx.shape[0]), not labels 
                         dtype=np.float32)
 
     # build symmetric adjacency matrix
